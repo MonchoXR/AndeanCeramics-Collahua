@@ -2,14 +2,16 @@
 import './App.css';
 // import Alerta from './components/Alerta/Alerta';
 import MiNavPublic from './components/Navbar/Navbar';
-
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
     // <div className="App">
-    //   <header className="App-header">
+    <>
         <MiNavPublic></MiNavPublic>
-    //   </header>
+        <ItemListContainer></ItemListContainer>
+        
+    </>
     // </div>
   );
 }

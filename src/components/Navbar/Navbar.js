@@ -2,7 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
+
 import Milogo from '../../Assets/Logo/AndeanCeramics400x80.png';
+import CartWidget from '../CartWidget/CartWidget';
+
+
 
 function MiNav(){
     return (
@@ -33,15 +37,15 @@ function MiNav(){
                   <Nav.Link eventKey="link-2">Contact</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="disabled" disabled>
-                    Disabled
+                  <Nav.Link eventKey="link-2">
+                  <CartWidget></CartWidget>
                   </Nav.Link>
                 </Nav.Item>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-
+      
 
         
       </header>
