@@ -1,21 +1,39 @@
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 // import Alerta from './components/Alerta/Alerta';
-import MiNavPublic from './components/Navbar/Navbar';
+import { useState } from "react"
+import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import BannerPrincipal from './components/BannerPrincipal/BannerPrincipal';
+import SeccionTitle from './components/SeccionTitle/SeccionTitle';
+
+import { ItemCount } from './components/ItemCount/ItemCount';
+import { Carrito } from './components/Carrito/Carrito';
 
 function App() {
-  return (
-    // <div className="App">
-    <>
-        <MiNavPublic></MiNavPublic>
-        <BannerPrincipal></BannerPrincipal>
-        <ItemListContainer></ItemListContainer>
 
-        
+  const [numeroProductos, setNumeroProductos] = useState(0);
+ 
+  const agregar =(contador)=>{  
+    // console.log('Numero carrito agregadp',contador);
+    
+    setNumeroProductos(contador);
+ 
+
+  }    
+  //  console.log("el numeroProductos",numeroProductos);
+
+  return (
+
+    <>
+        <Navbar></Navbar>
+        <BannerPrincipal></BannerPrincipal>
+        <SeccionTitle></SeccionTitle>
+        <ItemListContainer nombre="Kero" precioActual={60}></ItemListContainer>
+        <ItemCount  stock={10} initial={0}  onAdd={agregar}></ItemCount>
+        <Carrito cantidad={numeroProductos}></Carrito>
     </>
-    // </div>
+
   );
 }
 export default App;

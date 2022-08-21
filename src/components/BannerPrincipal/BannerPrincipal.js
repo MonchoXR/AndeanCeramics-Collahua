@@ -6,16 +6,17 @@ function BannerPrincipal(){
     <>
       <main className="index_bannerPrincipal">
         <h1 className="index_tituloTipografia">
-          {" "}
+
           Unique Ceramics from Andean Countries
         </h1>
 
-        <div class="index__mainBloque">
-          <div class="index_bannerBloque1">
-            <p class="index_bannerText"> Exclusive Andean ceramics.</p>
-            <p class="index_bannerText">See a 3D model in your space with our Augmented Reality</p>
+        <div className="index__mainBloque">
+          <div className="index_bannerBloque1">
+            <p className="index_bannerText"> Exclusive Andean ceramics.</p>
+            <p className="index_bannerText">See a 3D model in your space with our Augmented Reality</p>
           </div>
-          <div class="index_bannerBloque2">
+
+          <div className="index_bannerBloque2">
             <model-viewer
               bounds="tight"
               src={Kero}
@@ -27,11 +28,11 @@ function BannerPrincipal(){
               shadow-intensity="0"
               exposure="0.3"
               auto-rotate
-              ar-status="not-presenting"
-              class="ModelV"
+              ar-status="not-presenting"            
+              className="ModelV"
             >
-              <div class="progress-bar hide" slot="progress-bar">
-                <div class="update-bar"></div>
+              <div className="progress-bar hide" slot="progress-bar">
+                <div className="update-bar"></div>
               </div>
               <button slot="ar-button" id="ar-button">
                 View in your space
