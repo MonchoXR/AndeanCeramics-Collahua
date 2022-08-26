@@ -6,7 +6,7 @@ function CartWidget(){
     return(
     <>
         <div className="cardWidget">
-            <FaShoppingCart ></FaShoppingCart>
+            <FaShoppingCart/>
             <h6 className="umberCardWidget">2</h6>
         </div>
         

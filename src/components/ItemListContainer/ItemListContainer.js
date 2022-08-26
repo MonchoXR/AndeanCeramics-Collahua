@@ -1,23 +1,47 @@
-import Kero from '../../Assets/Catologo/kero600x600.png';
+import { Productos } from '../Producto/Producto';
+import { ItemList } from '../../components/ItemList/ItemList';
+import { useEffect, useState } from 'react';
+function ItemListContainer(){
 
-function ItemListContainer({nombre, precioActual}){
+  const [producto, setProductos] =useState([])
+
+  const obtenerProductos =()=>{
+      return new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+            resolve(Productos)
+          },3000);
+      })
+  }
+
+
+
+
+useEffect(()=>{
+
+  const funcionAsincrona =async()=>{
+    try {
+        const listadoProductos = await obtenerProductos();
+        setProductos(listadoProductos)
+        // console.log("listado Productos",listadoProductos);
+    } catch (error) {
+        console.log("Hubo error");
+    }
+  
+  }
+  funcionAsincrona();
+
+},[])
+
   return (
     <>
-      <div className="prod_marco">
-        <div className="prod_img">
-          <img src={Kero} className="" alt="Kero" />
-          <div className="prod_sale">sale!</div>
-        </div>
-        <h5 className=" prod_textCenter ">{nombre}</h5>
-        <div className="prod_cajaInfoCart">
-          <div className="prod_price">
-            <div className="prod_priceBefore">$60.00</div>
-            <div className="prod_priceCurrently">${precioActual}</div>
-          </div>
-
-          <button className="prod_addCart">Add To Cart</button>
-        </div>
-      </div>
+      {
+        producto.length>0 &&
+        <>
+               <ItemList MisProductos={producto}/>
+        </>
+      }
+   
+     
     </>
   );
 }

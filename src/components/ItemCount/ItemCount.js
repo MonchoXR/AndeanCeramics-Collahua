@@ -25,12 +25,6 @@ export const ItemCount=({stock,initial, onAdd})=>{
          
 
         }
-        // if(contador === 0){
-        //     setestadoBtn(false);
-        // }
-
-  
- 
 
     }
 

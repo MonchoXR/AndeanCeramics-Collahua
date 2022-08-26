@@ -1,5 +1,5 @@
-// import logo from './logo.svg';
-// import './App.css';
+
+
 // import Alerta from './components/Alerta/Alerta';
 import { useState } from "react"
 import Navbar from './components/Navbar/Navbar';
@@ -10,6 +10,11 @@ import SeccionTitle from './components/SeccionTitle/SeccionTitle';
 import { ItemCount } from './components/ItemCount/ItemCount';
 import { Carrito } from './components/Carrito/Carrito';
 
+// import { Catalogo } from './components/Catalogo/Catalogo';
+
+
+
+//Imagenes
 function App() {
 
   const [numeroProductos, setNumeroProductos] = useState(0);
@@ -29,9 +34,10 @@ function App() {
         <Navbar></Navbar>
         <BannerPrincipal></BannerPrincipal>
         <SeccionTitle></SeccionTitle>
-        <ItemListContainer nombre="Kero" precioActual={60}></ItemListContainer>
-        <ItemCount  stock={10} initial={0}  onAdd={agregar}></ItemCount>
-        <Carrito cantidad={numeroProductos}></Carrito>
+        <ItemListContainer></ItemListContainer>
+        {/* <ItemCount  stock={10} initial={0}  onAdd={agregar}></ItemCount> */}
+        {/* <Carrito cantidad={numeroProductos}></Carrito> */}
+
     </>
 
   );
