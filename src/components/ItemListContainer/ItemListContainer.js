@@ -7,9 +7,10 @@ function ItemListContainer(){
 
   const obtenerProductos =()=>{
       return new Promise((resolve, reject)=>{
-          setTimeout(()=>{
+          // setTimeout(()=>{
             resolve(Productos)
-          },3000);
+            reject(err =>console.error(err))
+          // },3000);
       })
   }
 

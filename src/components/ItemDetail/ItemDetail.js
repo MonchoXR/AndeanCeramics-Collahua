@@ -3,7 +3,7 @@ import { useState } from "react"
 import Kero from '../../Assets/Catologo/3D/Kero.glb';
 
 
-export const ItemCount=({stock,initial, onAdd})=>{
+export const ItemDetail=({stock,initial, data, name, onAdd})=>{
     //cuando una propieda o una variable de estado cambie,
     //el componete vuelve a renderizarse
     const [contador, setContador] = useState(initial);
@@ -37,7 +37,7 @@ export const ItemCount=({stock,initial, onAdd})=>{
             <div className="item_caja1">
                 <model-viewer
                     bounds="tight"
-                    src={Kero}
+                    // src={Kero}
                     ar
                     ar-scale="fixed"
                     ar-modes="scene-viewer webxr quick-look"
@@ -49,6 +49,7 @@ export const ItemCount=({stock,initial, onAdd})=>{
                     ar-status="not-presenting"            
                     className="ModelV"
                     >
+                        <img src={data}/>
                     <div className="progress-bar hide" slot="progress-bar">
                         <div className="update-bar"></div>
                     </div>
@@ -57,10 +58,10 @@ export const ItemCount=({stock,initial, onAdd})=>{
                     </button>
                 </model-viewer>
             </div>
-
+            
 
             <div className="item_caja2">
-                <div className="item_title">Kero</div>
+                <div className="item_title">{name}</div>
                 <div className="item_precio">$45</div>
                 <div className="item_size">Size </div>
                 <div className="item_size_desc">32 cm x 25 cm</div>
