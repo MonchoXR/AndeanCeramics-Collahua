@@ -34,7 +34,7 @@ function App() {
         <Navbar></Navbar>
         <BannerPrincipal></BannerPrincipal>
         <SeccionTitle></SeccionTitle>
-        <ItemListContainer></ItemListContainer>
+        {/* <ItemListContainer></ItemListContainer> */}
         <ItemDetailContainer></ItemDetailContainer>
         {/* <ItemCount  stock={10} initial={0}  onAdd={agregar}></ItemCount> */}
         {/* <Carrito cantidad={numeroProductos}></Carrito> */}

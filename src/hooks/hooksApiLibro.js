@@ -3,50 +3,56 @@ import { useEffect, useState } from 'react';
 export const UseLibro=(url) =>{
     
     const [libro, setlibro] = useState([]);
+    const [state, setState] = useState(true);
 
-    useEffect(()=>{
-
-            // const URLGET="https://api.itbook.store/1.0/new";
-    // fetch(URLGET)
-    //   .then(resultado=>resultado.json())
-    //   .then(data => {
-    //         let libros=data.books;
-    //         setlibro(libros[0].image);
-    //         console.log("llamo2")
-    //**************Con ASYNC****************/
+    useEffect(()=>{ 
+     
       // const getData = async()=>{
-      //    const URLGET="https://api.itbook.store/1.0/new";
-      //    const resultado = await fetch(URLGET);
-      //    const data = await resultado.json();
-      //    setTimeout(()=>{
-      //     console.log(data.books)
+ 
+      //       try{
 
-      //        setlibro(data.books[0]);
-  
-
-      //    },3000)
+      //         const resultado = await fetch(url);
+      //         const data =  await resultado.json();
        
-      // }
-      // getData();
+      //         setlibro(data.books[0]);      
+      //       }
+      //       catch(err){
+      //         console.log("salio un error",err)
+      //       }
+      //       finally{
+      //         console.log("Finalizamos")
+      //       }
+  
+      //     }
+      //     getData();
 
-            
-          const getData = async()=>{
-            console.log("mi url", url)
-             const resultado = await fetch(url);
-             const data = await resultado.json();
-            //  setTimeout(()=>{
-                 setlibro(data.books[0]);
-            //  },5000)
-           
-          }
-          getData();
+        const eventLibro =()=>{
+
+          return new Promise((resolve, reject)=>{
+            // setTimeout(()=>{
+              resolve(fetch(url));
+              reject(err => console.log("error event libro",err))        
+            // },4000)
+            })
+        }
+        
+        eventLibro()
+        .then(response => response.json())
+        .then((data) => {
+          setlibro(data.books[0])
+        })
+        .finally(() => {
+           setState(false)
+          console.log(' completed transaccion');
+        });
+      
+       
           
       },[url])
     
 
-          return{            
-            libro
-
-          };
+          return {libro,state }
+          
+          
 
 }
