@@ -29,10 +29,10 @@ export const UseLibro=(url) =>{
         const eventLibro =()=>{
 
           return new Promise((resolve, reject)=>{
-            // setTimeout(()=>{
+            setTimeout(()=>{
               resolve(fetch(url));
               reject(err => console.log("error event libro",err))        
-            // },4000)
+            },4000)
             })
         }
         
