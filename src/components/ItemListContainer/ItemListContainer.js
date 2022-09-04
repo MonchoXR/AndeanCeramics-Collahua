@@ -1,9 +1,14 @@
 import { Productos } from '../Producto/Producto';
 import { ItemList } from '../../components/ItemList/ItemList';
 import { useEffect, useState } from 'react';
+import {useParams} from "react-router-dom"
+
 function ItemListContainer(){
 
-  const [producto, setProductos] =useState([])
+  // console.log(useParams());
+  const {tipoCatalogo} = useParams();   //el mismo nombre definido la variable
+
+  const [misProdcutos, setMisProductos] =useState([])
 
   const obtenerProductos =()=>{
       return new Promise((resolve, reject)=>{
@@ -21,24 +26,32 @@ useEffect(()=>{
 
   const funcionAsincrona =async()=>{
     try {
-        const listadoProductos = await obtenerProductos();
-        setProductos(listadoProductos)
-        // console.log("listado Productos",listadoProductos);
+          if(!tipoCatalogo){
+            const listadoProductos = await obtenerProductos();
+            setMisProductos(listadoProductos)
+
+          }else{
+            const listadoProductos = await obtenerProductos();
+            const nuevaLista = listadoProductos.filter(item=>item.categoria === tipoCatalogo)
+      
+            setMisProductos(nuevaLista)
+          }
+      
     } catch (error) {
-        console.log("Hubo error");
+        console.log("Hubo error",error);
     }
   
   }
   funcionAsincrona();
 
-},[])
+},[tipoCatalogo])
 
   return (
     <>
       {
-        producto.length>0 &&
+        misProdcutos.length>0 &&
         <>
-               <ItemList MisProductos={producto}/>
+               <ItemList items={misProdcutos}/>
         </>
       }
    

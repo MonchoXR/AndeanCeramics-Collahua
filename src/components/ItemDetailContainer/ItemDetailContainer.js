@@ -1,34 +1,41 @@
 
 import { ItemDetail } from '../ItemDetail/ItemDetail';
-import {UseLibro} from '../../hooks/hooksApiLibro';
+import {UseProducto} from '../../hooks/hookProducto';
+import { Productos } from '../Producto/Producto';
 import { useState,useEffect } from 'react';
 
 import Icono from '../../Assets/Iconos/DualRing.gif';
 
-export const ItemDetailContainer=()=>{
+
+export const ItemDetailContainer = () => {
 
 
-  const URLGET="https://api.itbook.store/1.0/new";
-  const {libro,state} = UseLibro(URLGET);
-  const [loading, setLoading] = useState(true)
+  const { items, state } = UseProducto(Productos);
+ 
+  const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{  
+  useEffect(() => {
 
-      setLoading(state);
-  
+    setLoading(state);
 
-},[state])
+  }, [state]);
 
-
-    return (
+  return (
+    <>
+      {loading ? (
       
-      <>          
-          {
-           loading ? <img src={Icono}/>
-            :
-           <ItemDetail stock={10} initial={0} data={libro.image} name={libro.title}/>
-            }        
-
-      </>
-    );
-}
+           <ItemDetail  data={Icono}/>
+      
+     
+      ) : (
+        <ItemDetail
+          stock={10}
+          initial={0}
+          data={items.img}
+          name={items.nombre}
+          key={items.id}
+        />
+      )}
+    </>
+  );
+};

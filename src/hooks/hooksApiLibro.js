@@ -11,18 +11,21 @@ export const UseLibro=(url) =>{
  
       //       try{
 
+      //         setTimeout(async ()=>{
       //         const resultado = await fetch(url);
       //         const data =  await resultado.json();
        
       //         setlibro(data.books[0]);      
+      //       }, 4000)
       //       }
       //       catch(err){
       //         console.log("salio un error",err)
       //       }
-      //       finally{
-      //         console.log("Finalizamos")
+      //       finally {
+      //         // Wait... so I'm just swallowing my return and error handling?
+      //         console.log(' coompleted transaccion')
       //       }
-  
+            
       //     }
       //     getData();
 
@@ -46,7 +49,7 @@ export const UseLibro=(url) =>{
           console.log(' completed transaccion');
         });
       
-       
+
           
       },[url])
     

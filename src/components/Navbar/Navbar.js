@@ -1,24 +1,20 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 
 import Milogo from '../../Assets/Logo/AndeanCeramics400x80.png';
 import CartWidget from '../CartWidget/CartWidget';
-
-
+import {NavLink, Link} from 'react-router-dom';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function MiNav(){
     return (
       <header >
         <Navbar className='navbar_container'  bg="light" expand="lg">
           <Container >
-            <Navbar.Brand href="#home">
+            <Navbar.Brand as={NavLink} to="/">
             <img 
-            //   src="/Assets/Logo/AndeanCeramics400x80.png"
                 src={Milogo}
-            //   width="30"
-            //   height="30"
               className=" navbar_img d-inline-block align-top "
               alt="AndeanCeramics logo"
             />
@@ -26,21 +22,30 @@ function MiNav(){
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
 
-              <Nav  variant="tabs" activeKey="/home">
-                <Nav.Item>
-                  <Nav.Link href="/home">Home</Nav.Link>
+              <Nav  variant="tabs" defaultActiveKey="/home">
+  
+                 <Nav.Item>
+                  <Nav.Link   as={Link} to="/">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="link-1">Products</Nav.Link>
+                  <Nav.Link  as={Link} to="/productos">Products</Nav.Link>
                 </Nav.Item>
+              
+              
+                <NavDropdown title="Catalogo" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to="/category/Iglesias">Iglesias</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/category/Nacimientos">Nacimientos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/category/Lamparas">Lamparas</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/category/Arcas">Arcas</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/category/Variados">Variados</NavDropdown.Item>
+           
+              
+                </NavDropdown>
+
                 <Nav.Item>
-                  <Nav.Link eventKey="link-2">Contact</Nav.Link>
+                  <Nav.Link  as={Link} to="/"><CartWidget /></Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-2">
-                  <CartWidget></CartWidget>
-                  </Nav.Link>
-                </Nav.Item>
+
               </Nav>
             </Navbar.Collapse>
           </Container>

@@ -38,6 +38,8 @@ export const ItemDetail=({stock,initial, data, name, onAdd})=>{
                 <model-viewer
                     bounds="tight"
                     // src={Kero}
+                   
+                     poster={data}
                     ar
                     ar-scale="fixed"
                     ar-modes="scene-viewer webxr quick-look"
@@ -49,7 +51,7 @@ export const ItemDetail=({stock,initial, data, name, onAdd})=>{
                     ar-status="not-presenting"            
                     className="ModelV"
                     >
-                        <img src={data}/>
+                        {/* <img src={data}/> */}
                     <div className="progress-bar hide" slot="progress-bar">
                         <div className="update-bar"></div>
                     </div>

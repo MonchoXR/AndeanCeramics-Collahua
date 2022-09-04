@@ -1,20 +1,22 @@
 
 // 
 import {Item} from '../Item/Item'
-import {ItemCajaDetalle} from '../ItemCajaDetalle/ItemCajaDetalle'
 
-export const ItemList=({MisProductos})=>{
+export const ItemList=({items})=>{
 
     return (
       <>
         <section className="list_itemContainer">
-          <div className="list_itemPrimeraSeccion">
-            {
-            MisProductos.map((elementos) => {
-              return <Item productos={elementos}  key={elementos.id}/>;
-            })
-            }
-          </div>
+              <div className="list_itemPrimeraSeccion">
+                  {
+                  items.map(elementos => (
+                    // <Link key={elementos.id} to={`/item/${elementos.id}`}>
+                    //      <Item productos={elementos}  />
+                    // </Link>
+                     <Item productos={elementos}  key={elementos.id}/>
+                  ))
+                  }
+              </div>
     
           {/* <div className="list_itemSegundaSeccion">
             <ItemCajaDetalle cajaProducto={MisProductos}/>
