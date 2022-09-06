@@ -17,10 +17,7 @@ export const ItemList=({items})=>{
                   ))
                   }
               </div>
-    
-          {/* <div className="list_itemSegundaSeccion">
-            <ItemCajaDetalle cajaProducto={MisProductos}/>
-          </div> */}
+  
         </section>
       </>
     );

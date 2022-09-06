@@ -29,8 +29,7 @@ export const ItemDetailContainer = () => {
      
       ) : (
         <ItemDetail
-          stock={10}
-          initial={0}
+       
           data={items.img}
           name={items.nombre}
           key={items.id}

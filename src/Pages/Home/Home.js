@@ -1,8 +1,15 @@
 import Kero from '../../Assets/Catologo/3D/Kero.glb';
 import { Catalogo } from '../../components/Catalogo/Catalogo';
 import SeccionTitle from '../../components/SeccionTitle/SeccionTitle';
+import KeroPoster from '../../Assets/Catologo/kero600x600.png'
 
 export const Home =()=>{
+  
+  const mystyle = {
+ 
+                width: "50%",
+                height: "50vh"
+  };
    
   return (
     <>
@@ -19,9 +26,12 @@ export const Home =()=>{
           </div>
 
           <div className="index_bannerBloque2">
-            <model-viewer
-              bounds="tight"
+            <model-viewer 
+               style={mystyle}
+              
+            
               src={Kero}
+              poster={KeroPoster}
               ar
               ar-scale="fixed"
               ar-modes="scene-viewer webxr quick-look"
@@ -32,14 +42,19 @@ export const Home =()=>{
               auto-rotate
               ar-status="not-presenting"            
               className="ModelV"
+             
             >
+              
               <div className="progress-bar hide" slot="progress-bar">
                 <div className="update-bar"></div>
               </div>
               <button slot="ar-button" id="ar-button">
                 View in your space
               </button>
+           
             </model-viewer>
+            
+
           </div>
         </div>
       </main>

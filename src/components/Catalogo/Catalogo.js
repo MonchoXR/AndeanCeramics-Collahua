@@ -1,5 +1,6 @@
 import { Productos } from '../Producto/Producto';
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 export const Catalogo=()=>{
 
   
@@ -56,29 +57,29 @@ export const Catalogo=()=>{
   },[misProdcutos])
 
   console.log("mis prod",misProdcutos);
-  console.log("varias",categVariados); 
+
 
     return (
       <> 
         <section className="row_cat">
           <div className="col_cat col_cat_inicial ">
-              <img src={categVariados.img} className=" " alt={""}/>
+          <Link to ={"/category/Variados"}>  <img src={categVariados.img} className=" " alt={""}/></Link>
               <h5 className=" text-center ">{categVariados.categoria}</h5>     
             </div>
           <div className="col_cat  ">
-            <img src={categIglesia.img} className=" " alt={categIglesia.categoria}/>
+          <Link to ={"/category/Iglesias"}> <img src={categIglesia.img} className=" " alt={categIglesia.categoria}/></Link>
             <h5 className=" text-center">{categIglesia.categoria}</h5>
           </div>
           <div className="col_cat ">
-            <img src={categLampara.img} className=" " alt={categLampara.categoria}/>
+          <Link to ={"/category/Lamparas"}> <img src={categLampara.img} className=" " alt={categLampara.categoria}/></Link>
             <h5 className=" text-center">{categLampara.categoria}</h5>
           </div>
           <div className="col_cat ">
-            <img src={cateNaci.img} className=" " alt={cateNaci.categoria}/>
+          <Link to ={"/category/Nacimientos"}> <img src={cateNaci.img} className=" " alt={cateNaci.categoria}/></Link>
             <h5 className=" text-center">{cateNaci.categoria}</h5>
           </div>
           <div className="col_cat col_cat_ultimo">
-            <img src={categArca.img} className=" " alt={categArca.categoria}/>
+          <Link to ={"/category/Arcas"}> <img src={categArca.img} className=" " alt={categArca.categoria}/></Link>
             <h5 className=" text-center">{categArca.categoria}</h5>
           </div>
           

@@ -1,32 +1,21 @@
 
 import { useState } from "react"
 import Kero from '../../Assets/Catologo/3D/Kero.glb';
+import { Carrito } from "../Carrito/Carrito";
+import { ItemCount } from "../ItemCount/ItemCount";
 
 
-export const ItemDetail=({stock,initial, data, name, onAdd})=>{
-    //cuando una propieda o una variable de estado cambie,
-    //el componete vuelve a renderizarse
-    const [contador, setContador] = useState(initial);
+export const ItemDetail=({data, name})=>{
 
-
-
-    const incrementar = ()=>{
-        if(contador<stock){
-            setContador(contador + 1)
-        }
-
-                
+    const [numeroProductos, setNumeroProductos] = useState(0);
+ 
+    const agregarItem =(quantityToAdd)=>{  
+      console.log('Numero carrito agregadp',quantityToAdd);
+      
+      setNumeroProductos(quantityToAdd);
+   
   
-    }
-
-    const decrementar = ()=>{
-        if(contador>initial){
-            setContador(contador - 1)
-         
-
-        }
-
-    }
+    }   
 
 
 
@@ -51,7 +40,7 @@ export const ItemDetail=({stock,initial, data, name, onAdd})=>{
                     ar-status="not-presenting"            
                     className="ModelV"
                     >
-                        {/* <img src={data}/> */}
+                     
                     <div className="progress-bar hide" slot="progress-bar">
                         <div className="update-bar"></div>
                     </div>
@@ -68,16 +57,8 @@ export const ItemDetail=({stock,initial, data, name, onAdd})=>{
                 <div className="item_size">Size </div>
                 <div className="item_size_desc">32 cm x 25 cm</div>
                 <div className="item_text_cantidad">Cantidad</div>
-                <div className="item_cant_caja">
-                    <button className="item_btn_cont" onClick={incrementar}>+</button>
-                    <div className="item_conta">{contador}</div>
-                    <button className="item_btn_cont" onClick={decrementar}>-</button>
-                </div>
-
-                <button disabled={contador>0? false:true} className={`  ${contador<1? 'Negro':'item_btn_agregar' }`} onClick={() => onAdd(contador)}>
-                    Agregar Carrito
-                </button>
-                
+      
+                 <ItemCount  stock={10} initial={0}  onAdd={agregarItem}/>
                 <div className="item_Detalles">Details</div>
                 <div className="item_frase">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur
@@ -87,6 +68,7 @@ export const ItemDetail=({stock,initial, data, name, onAdd})=>{
                 </div>
             </div>
         </section>
+              <Carrito cantidad={numeroProductos} />
       </>
     );
 }

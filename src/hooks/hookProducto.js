@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom"
 
 export const UseProducto=(data) =>{
 
-    const {tipoItem} = useParams();   //el mismo nombre definido la variable
+    const {tipoId} = useParams();   //el mismo nombre definido la variable
 
     const [ items, setItem] = useState([]);
     const [state, setState] = useState(true);
@@ -23,12 +23,12 @@ export const UseProducto=(data) =>{
         const getData=async()=>{
             try{
             // const data = await eventData();
-            console.log("entro aqui",tipoItem)
+            console.log("entro aqui",tipoId)
 
 
             const listadoItems= await eventData();
           
-            const nuevadata = listadoItems.filter(item=>item.id === parseInt(tipoItem))
+            const nuevadata = listadoItems.filter(item=>item.id === parseInt(tipoId))
       
             setItem(nuevadata[0]);
 
