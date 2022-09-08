@@ -32,7 +32,9 @@ export const ItemDetailContainer = () => {
        
           data={items.img}
           name={items.nombre}
+          stockItem={items.stock}
           key={items.id}
+          item={items}
         />
       )}
     </>

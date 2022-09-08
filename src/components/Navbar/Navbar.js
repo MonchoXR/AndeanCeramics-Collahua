@@ -43,7 +43,7 @@ function MiNav(){
                 </NavDropdown>
 
                 <Nav.Item>
-                  <Nav.Link  as={Link} to="/"><CartWidget /></Nav.Link>
+                  <Nav.Link  as={Link} to="/cart"><CartWidget /></Nav.Link>
                 </Nav.Item>
 
               </Nav>

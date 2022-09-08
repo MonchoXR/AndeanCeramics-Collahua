@@ -12,7 +12,8 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import { Home } from "./Pages/Home/Home";
-import { ComponenteVacio } from "./components/ComponenteVacio/ComponenteVacio";
+import { CartContainer } from "./components/CartContainer/CartContainer";
+import { CartProvider } from './Context/CartContext';
 // import { Catalogo } from './components/Catalogo/Catalogo';
 
 
@@ -25,6 +26,7 @@ function App() {
   return (
 
     <>
+    <CartProvider>
       <BrowserRouter>
         <Navbar/>
          <Routes>
@@ -32,12 +34,11 @@ function App() {
           <Route path='/productos' element={<ItemListContainer/>}/>
           <Route path='/category/:tipoCatalogo' element={<ItemListContainer/>}/>
           <Route path='/item/:tipoId' element={<ItemDetailContainer/>}/>
-          <Route path='/cart/' element={<ComponenteVacio/>}/>
+          <Route path='/cart/' element={<CartContainer/>}/>
           <Route path='*' element={<ItemListContainer/>}/>
         </Routes>
-
-
-     </BrowserRouter>
+       </BrowserRouter>
+     </CartProvider>
     </>
 
   );

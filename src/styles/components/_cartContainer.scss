@@ -1,0 +1,60 @@
+.cartCont_banner {
+ 
+
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../../Assets/Banner/BannerIndex.jpg");    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     height: 400px;
+  
+     h1 {
+      color: white;
+      font-size: 40px;
+      }
+}
+
+
+.cartCont_cuadro{
+    vertical-align: middle;
+}
+
+.cartImagen {
+    // width: 100%;
+    width: 80px;
+    // ma  
+}
+
+.cartCont_btnEliminar{
+
+     // position:absolute;
+     top: 0px;
+     left: 0px;
+     background-color: rgba(255, 255, 255, 0.800);
+     color: red;
+     padding-top: 0;
+     padding-bottom: 1px;
+     padding-left: 7px;
+     padding-right: 7px;
+     //  margin: 0px;
+     font-size: 12px;
+     text-align: center;
+     border-radius: 10px;
+     font-weight: 700;
+     border: 0px solid;
+   
+     &:hover {
+   
+       background-color: rgba(255, 0, 0, 0.952);
+       color: white;
+       border-radius: 10px;
+       //  line-height: 1.2;
+       font-weight: 750;
+     }
+   
+
+}
