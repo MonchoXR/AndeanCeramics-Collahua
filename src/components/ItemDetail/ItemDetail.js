@@ -7,24 +7,29 @@ import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
 
-export const ItemDetail=({data, name, stockItem, item})=>{
+export const ItemDetail=({miId, data, name, stockItem, items})=>{
  
-    const {addProduct} = useContext(CartContext);
+    const {addProduct,isIntCart,addCantToCart} = useContext(CartContext);
 
-    const [numeroProductos, setNumeroProductos] = useState(0);
- 
-    const agregarItem =(quantityToAdd)=>{  
-      console.log('numero de cantidad carrito',quantityToAdd);
-      
-      const newProduct ={...item, cantidad:quantityToAdd}
-      console.log('newProduct',newProduct)
-      addProduct(newProduct);
-      setNumeroProductos(quantityToAdd);
-   
+    const [numeroProductos, setNumeroCantidad] = useState(0);
   
-    }   
 
+    const agregarItem = (quantityToAdd) => {
 
+      if (!isIntCart(miId)) {
+        const newProduct = { ...items, cantidad: quantityToAdd };
+        addProduct(newProduct);
+      
+      } 
+       else {
+       
+        addCantToCart(miId, quantityToAdd);
+      }
+   
+      setNumeroCantidad(quantityToAdd);
+    };   
+  
+    // console.log("items detail en nombre",items?.nombre);
 
     return (
       <>
@@ -63,7 +68,7 @@ export const ItemDetail=({data, name, stockItem, item})=>{
             
 
             {numeroProductos === 0 ? (
-              <ItemCount stock={stockItem} initial={0}onAdd={agregarItem}  />
+              <ItemCount stock={stockItem} initial={0} onAdd={agregarItem}  />
                 ) : (
               <div>
                 <Link to="/productos">

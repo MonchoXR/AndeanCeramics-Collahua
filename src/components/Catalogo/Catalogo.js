@@ -37,7 +37,7 @@ export const Catalogo=()=>{
         //   }
         // })
           
-        console.log("varias",listadoProductos[0]); 
+   
         setCategVariados(listadoProductos[0])
         setCategIglesia(listadoProductos[1])
         setCatLampara(listadoProductos[3]);
@@ -56,7 +56,6 @@ export const Catalogo=()=>{
 
   },[misProdcutos])
 
-  console.log("mis prod",misProdcutos);
 
 
     return (

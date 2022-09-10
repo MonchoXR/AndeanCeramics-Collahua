@@ -6,7 +6,7 @@ import { CartContext } from "../../Context/CartContext";
 
 export const CartContainer=({})=>{
   
-  const {productCartList, deleteProduct} = useContext(CartContext);
+  const {productCartList, deleteProduct,clear} = useContext(CartContext);
 
 
     return (
@@ -30,8 +30,8 @@ export const CartContainer=({})=>{
         
                 {
                   productCartList.map(item=>(
-                 
-                    <tr>
+                    
+                    <tr key={item.id}>
                         <th className="cartCont_cuadro" scope="row " ><div  className="cartCont_cuadro"><button onClick={()=>deleteProduct(item.id)} className="cartCont_btnEliminar"> X </button></div></th>
                         <td className="cartCont_cuadro"><img src={item.img} className="cartImagen" alt="Catalago3" /></td>
                         <td  className="cartCont_cuadro"> <div> {item.nombre} </div></td>
@@ -42,9 +42,12 @@ export const CartContainer=({})=>{
 
                   ))
                 } 
-              
+
+             
              </tbody>
+             
           </Table>
+          <button  onClick={()=>clear()} className="">VaciarCarrito</button>
 
       </>
     );

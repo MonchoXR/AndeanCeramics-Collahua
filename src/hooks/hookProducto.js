@@ -23,31 +23,13 @@ export const UseProducto=(data) =>{
         const getData=async()=>{
             try{
             // const data = await eventData();
-            console.log("entro aqui",tipoId)
-
-
+     
             const listadoItems= await eventData();
           
             const nuevadata = listadoItems.filter(item=>item.id === parseInt(tipoId))
-      
+
             setItem(nuevadata[0]);
 
-            // if(!tipoItem){
-              
-            //     const data = await eventData();
-            //     setItem(data);
-            //     console.log("entro aqui")
-      
-            //   }else{
-            //     const listadoItems= await eventData();
-          
-            //     const nuevadata = listadoItems.filter(item=>item.id === parseInt(tipoItem))
-          
-            //     setItem(nuevadata[0]);
-              
-            //   }
-
-            // setItem(data);
             }
             catch(err){
                 console.log("ver error",err)

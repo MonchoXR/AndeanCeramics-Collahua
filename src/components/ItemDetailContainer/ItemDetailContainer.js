@@ -11,7 +11,7 @@ export const ItemDetailContainer = () => {
 
 
   const { items, state } = UseProducto(Productos);
- 
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
     setLoading(state);
 
   }, [state]);
-
+  // console.log("itemsContainer nombre",items.nombre);
   return (
     <>
       {loading ? (
@@ -34,7 +34,8 @@ export const ItemDetailContainer = () => {
           name={items.nombre}
           stockItem={items.stock}
           key={items.id}
-          item={items}
+          miId={items.id}
+          items={items}
         />
       )}
     </>
