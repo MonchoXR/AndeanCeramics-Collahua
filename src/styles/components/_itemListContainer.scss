@@ -1,0 +1,19 @@
+.banner_producto {
+
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../../Assets/Banner/BannerIndex.jpg");    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     height: 400px;
+  
+     h1 {
+      color: white;
+      font-size: 40px;
+      }
+  }
+  

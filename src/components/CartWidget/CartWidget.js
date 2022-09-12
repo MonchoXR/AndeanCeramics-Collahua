@@ -5,15 +5,20 @@ import { useContext } from "react";
 
 function CartWidget(){
 
-    const {getNumeroTotalProducts} = useContext(CartContext);
+    const {getNumeroTotalCount,productCartList} = useContext(CartContext);
 
     return(
     <>
-        <div className="cardWidget">
-            <FaShoppingCart/>
-            <h6 className="umberCardWidget">{getNumeroTotalProducts()}</h6>
-        </div>
-        
+        { productCartList.length > 0 &&
+            <>
+           
+            <div className="cardWidget">
+                <FaShoppingCart/>
+                <h6 className="umberCardWidget">{getNumeroTotalCount()}</h6>
+            </div>
+           </>
+        }
+      
     </>
     )
 }

@@ -30,7 +30,7 @@ export const CartProvider = ({children})=>{
         return(valida)
     }
 
-    const addCantToCart=(id,quantityToAdd)=>{
+    const addCantToCart=(id,quantity)=>{
         
             const  copiaOriginal = [...productCartList]
             // const objetoxID =copiaOriginal.find((items)=>{
@@ -38,26 +38,52 @@ export const CartProvider = ({children})=>{
             //   return items.cantidad =(items.cantidad +quantityToAdd);
             // }});
             const objetoxID =copiaOriginal.find((items=> items.id === id))
-            const objetoxIDCant = objetoxID.cantidad +quantityToAdd;
+            objetoxID.cantidad = objetoxID.cantidad +quantity;
+            
             const nuevoArraySinObjectoID = copiaOriginal.filter(elm=>elm.id !== id);
-            const nuevoArrayModificado= [...nuevoArraySinObjectoID,objetoxIDCant]
+            const nuevoArrayModificado= [...nuevoArraySinObjectoID,objetoxID]
             setProductCartList(nuevoArrayModificado);
    
     
     }
 
 
-    const getNumeroTotalProducts=()=>{
+    const getNumeroTotalCount=()=>{
+    
         const totalProducts = productCartList.reduce((acc,item)=>acc+item.cantidad,0)
+        // console.log("entreo a getNumeroTotal",productCartList,totalProducts);
+      
         return totalProducts;
+        
+    }
+
+    const getNumeroSubTotal=()=>{
+    
+        const SubTotalProducts = productCartList.reduce((acc,item)=>acc+item.cantidad*item.precio,0)
+
+        return SubTotalProducts;
+        
     }
 
     const clear=()=>{
         setProductCartList([])
     }
 
+    const getUpdateItemCart=(id,quantity)=>{
+
+
+        const newList = [...productCartList]
+
+         let index = productCartList.findIndex(item => item.id === id)
+         newList[index].cantidad = quantity
+         setProductCartList(newList )
+
+        
+
+    }
+
     return(
-        <CartContext.Provider value={{productCartList, addProduct, deleteProduct,isIntCart,addCantToCart,getNumeroTotalProducts,clear}}>
+        <CartContext.Provider value={{productCartList, addProduct, deleteProduct,isIntCart,addCantToCart,getNumeroTotalCount,clear,getUpdateItemCart,getNumeroSubTotal}}>
             {/* ..components */}
             {children}
         </CartContext.Provider>

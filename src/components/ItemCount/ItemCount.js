@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { MdArrowBackIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
+
 
 export const ItemCount=({stock,initial, onAdd})=>{
 
@@ -24,12 +27,13 @@ export const ItemCount=({stock,initial, onAdd})=>{
       <>
       <div className="item_text_cantidad">Cantidad</div>
       <div className="item_cant_caja">
-                    <button className="item_btn_cont" onClick={incrementar}>+</button>
-                    <div className="item_conta">{contador}</div>
-                    <button className="item_btn_cont" onClick={decrementar}>-</button>
-                </div>
+                    
+            <button className="item_btn_contLeft" onClick={decrementar}><MdArrowBackIos/></button>
+            <div className="item_conta">{contador}</div>
+            <button className="item_btn_contRigth" onClick={incrementar}><MdArrowForwardIos/></button>
+        </div>
 
-                <button disabled={contador>0? false:true} className={`  ${contador<1? 'Negro':'item_btn_agregar' }`} onClick={() => onAdd(contador)}>
+        <button disabled={contador>0? false:true} className={`  ${contador<1? 'Negro':'item_btn_agregar' }`} onClick={() => onAdd(contador)}>
                     Agregar Carrito
          </button>        
       </>

@@ -22,32 +22,33 @@ function ItemListContainer(){
 
 
 
-useEffect(()=>{
-
-  const funcionAsincrona =async()=>{
+useEffect(() => {
+  const funcionAsincrona = async () => {
     try {
-          if(!tipoCatalogo){
-            const listadoProductos = await obtenerProductos();
-            setMisProductos(listadoProductos)
+      if (!tipoCatalogo) {
+        const listadoProductos = await obtenerProductos();
+        setMisProductos(listadoProductos);
+      } else {
+        const listadoProductos = await obtenerProductos();
+        const nuevaLista = listadoProductos.filter(
+          (item) => item.categoria === tipoCatalogo
+        );
 
-          }else{
-            const listadoProductos = await obtenerProductos();
-            const nuevaLista = listadoProductos.filter(item=>item.categoria === tipoCatalogo)
-      
-            setMisProductos(nuevaLista)
-          }
-      
+        setMisProductos(nuevaLista);
+      }
     } catch (error) {
-        console.log("Hubo error",error);
+      console.log("Hubo error", error);
     }
-  
-  }
+  };
   funcionAsincrona();
-
-},[tipoCatalogo])
+}, [tipoCatalogo]);
 
   return (
     <>
+    <main class="banner_producto">
+      <h1>Products</h1>
+    </main>
+
       {
         misProdcutos.length>0 &&
         <>

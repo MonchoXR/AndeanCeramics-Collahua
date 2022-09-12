@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export const ItemDetail=({miId, data, name, stockItem, items})=>{
  
-    const {addProduct,isIntCart,addCantToCart} = useContext(CartContext);
+    const {addProduct,isIntCart,addCantToCart } = useContext(CartContext);
 
     const [numeroProductos, setNumeroCantidad] = useState(0);
   
@@ -19,7 +19,7 @@ export const ItemDetail=({miId, data, name, stockItem, items})=>{
       if (!isIntCart(miId)) {
         const newProduct = { ...items, cantidad: quantityToAdd };
         addProduct(newProduct);
-      
+        
       } 
        else {
        
@@ -28,7 +28,7 @@ export const ItemDetail=({miId, data, name, stockItem, items})=>{
    
       setNumeroCantidad(quantityToAdd);
     };   
-  
+
     // console.log("items detail en nombre",items?.nombre);
 
     return (
@@ -72,11 +72,11 @@ export const ItemDetail=({miId, data, name, stockItem, items})=>{
                 ) : (
               <div>
                 <Link to="/productos">
-                  <button className="btn_compra">Seguir comprando</button>
+                  <button className="btn_compra">Continue Shoppping</button>
                 </Link>
 
                 <Link to="/Cart">
-                  <button className="btn_compra">Finalizar compra</button>
+                  <button className="btn_Finalizar">Finalizar compra</button>
                 </Link>
               </div>
             )}

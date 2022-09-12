@@ -1,54 +1,41 @@
 
-import Table from 'react-bootstrap/Table';
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
+import { CartContainerDetail } from '../CartContainerDetail/CartContainerDetail';
+import { CartContainerSummary } from "../CartContainerSummary/CartContainerSummary";
+import { ImSad } from "react-icons/im";
+import { RiArrowGoBackLine } from "react-icons/ri";
 
 
-export const CartContainer=({})=>{
+export const CartContainer=()=>{
   
-  const {productCartList, deleteProduct,clear} = useContext(CartContext);
-
+  const {productCartList} = useContext(CartContext);
 
     return (
       <>
         <main className="cartCont_banner">
         <h1>Cart</h1>
         </main>
-
-        <Table striped  hover >
-          <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col"></th>
-                <th scope="col">Product</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">SubTotal</th>
-              </tr>
-            </thead>
-            <tbody>
-        
-                {
-                  productCartList.map(item=>(
-                    
-                    <tr key={item.id}>
-                        <th className="cartCont_cuadro" scope="row " ><div  className="cartCont_cuadro"><button onClick={()=>deleteProduct(item.id)} className="cartCont_btnEliminar"> X </button></div></th>
-                        <td className="cartCont_cuadro"><img src={item.img} className="cartImagen" alt="Catalago3" /></td>
-                        <td  className="cartCont_cuadro"> <div> {item.nombre} </div></td>
-                        <td  className="cartCont_cuadro"> <div> $40 </div></td>
-                        <td  className="cartCont_cuadro"><div> {item.cantidad} </div></td>
-                        <td  className="cartCont_cuadro"><div> 40 </div></td>
-                    </tr>
-
-                  ))
-                } 
-
-             
-             </tbody>
-             
-          </Table>
-          <button  onClick={()=>clear()} className="">VaciarCarrito</button>
-
+        {
+        productCartList.length>0?
+        <>
+          <section className="cart_contenedor">
+          <CartContainerDetail/>
+           
+          <CartContainerSummary/>
+          </section>
+        </>
+         :
+        <>  
+          <div className="cartCont_message">
+            <ImSad className="cartCont_Icon"/>
+            <p>You have no items in your cart!. </p>
+            <p>Once you add products, you will see them reflected here.</p>
+            <Link className="cartCont_backLink" to="/productos"><button className="cartCont_btnBack"><RiArrowGoBackLine className="cartCont_iconBack"/></button></Link > 
+          </div>
+        </>
+        }
       </>
     );
 }

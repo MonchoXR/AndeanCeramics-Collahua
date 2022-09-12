@@ -10,7 +10,7 @@
     align-items: center;
 
 
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 
 
 
@@ -32,6 +32,39 @@
 
     }
 
+    .item_btn_contLeft{
+        font-size: 1.8em;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+    
+        padding: 1px 1px 1px 12px;
+        background-color:white;
+        color:$main_color;
+        border: 1.8px solid red;
+    
+        &:hover {
+            background-color: $main_color;
+            color: white;
+        }
+    }
+
+    .item_btn_contRigth{
+        font-size: 1.8em;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;;
+    
+        padding: 1px 6px 1px 6px;
+        background-color:white;
+        color:$main_color;
+        border: 1.8px solid red;
+    
+        &:hover {
+            background-color: $main_color;
+            color: white;
+        }
+    }
+    
+
 }
 
 .item_btn_agregar {
@@ -39,17 +72,25 @@
     color: $main_color;
     background-color: rgba(255, 255, 255, 0.700);
 
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 500;
     border: 1px solid;
     border-color: $main_color;
     text-align: center;
-    background: transparent;
+    // background: transparent;
     padding: 1% 1%;
+
+    &:hover {
+
+        background-color: rgba(255, 0, 0, 0.952);
+        color: white;
+  
+        font-weight: 550;
+      }
 }
 
 .Negro {
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 500;
     border: 1px solid;
 

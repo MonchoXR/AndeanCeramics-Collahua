@@ -10,11 +10,11 @@ export const Item=({productos})=>{
             <Link to ={`/item/${productos.id}`}>   <img src={productos.img} className="" alt="Kero" /></Link>
               <div className="prod_sale">sale!</div>
             </div>
-            <h5 className=" prod_textCenter ">{productos.nombre}</h5>
+            <h3 className=" prod_textCenter ">{productos.nombre}</h3>
             <div className="prod_cajaInfoCart">
               <div className="prod_price">
                 <div className="prod_priceBefore">$60.00</div>
-                <div className="prod_priceCurrently">${}</div>
+                <div className="prod_priceCurrently">${productos.precio}</div>
             
               </div>
               <Link to ={`/itemCart/${productos.id}`}> <button  className="prod_addCart">Add To Cart</button></Link>
