@@ -71,7 +71,16 @@
             text-align: center;
             outline: 0;
             border: 0;
+
+            &:hover {
+              background-color: red;
+              color: white;
+              word-wrap: break-word;
+             }
+            
         }
+
+        
       }
 
 

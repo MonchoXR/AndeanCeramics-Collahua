@@ -45,7 +45,7 @@ useEffect(() => {
 
   return (
     <>
-    <main class="banner_producto">
+    <main className="banner_producto">
       <h1>Products</h1>
     </main>
 

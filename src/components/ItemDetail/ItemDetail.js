@@ -18,6 +18,7 @@ export const ItemDetail=({miId, data, name, stockItem, items})=>{
 
       if (!isIntCart(miId)) {
         const newProduct = { ...items, cantidad: quantityToAdd };
+  
         addProduct(newProduct);
         
       } 

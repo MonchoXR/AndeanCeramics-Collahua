@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom";
+import {  useState } from "react"
+import { useContext, } from "react";
+import { CartContext } from "../../Context/CartContext";
 
-export const Item=({productos})=>{
+export const Item=({productos, items})=>{
+
+  const [contador, setContador] = useState(0);
+  const {addProduct,isIntCart,addCantToCart } = useContext(CartContext);
+  // console.log("mi items"+ productos)
+
+  const agregarItem = (quantityToAdd) => {
+
+    if (!isIntCart(productos.id)) {
+      const newProduct = { ...productos, cantidad: 1 };
+      addProduct(newProduct);
+
+    } 
+     else {
+     
+      addCantToCart(productos.id, 1);
+    }
+ 
+  };   
+
 
     return (
       <>
@@ -17,7 +39,7 @@ export const Item=({productos})=>{
                 <div className="prod_priceCurrently">${productos.precio}</div>
             
               </div>
-              <Link to ={`/itemCart/${productos.id}`}> <button  className="prod_addCart">Add To Cart</button></Link>
+               <button  className="prod_addCart"  onClick={agregarItem}>Add To Cart</button>
               {/* <button  className="prod_addCart">Add To Cart</button> */}
             </div>
           </div>
