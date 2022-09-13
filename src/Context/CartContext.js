@@ -32,17 +32,11 @@ export const CartProvider = ({children})=>{
 
     const addCantToCart=(id,quantity)=>{
         
-            const  copiaOriginal = [...productCartList]
-            // const objetoxID =copiaOriginal.find((items)=>{
-            // if(items.id === id){ 
-            //   return items.cantidad =(items.cantidad +quantityToAdd);
-            // }});
-            const objetoxID =copiaOriginal.find((items=> items.id === id))
-            objetoxID.cantidad = objetoxID.cantidad +quantity;
-            
-            const nuevoArraySinObjectoID = copiaOriginal.filter(elm=>elm.id !== id);
-            const nuevoArrayModificado= [...nuevoArraySinObjectoID,objetoxID]
-            setProductCartList(nuevoArrayModificado);
+            const newList = [...productCartList]
+
+            let index = productCartList.findIndex(item => item.id === id)
+            newList[index].cantidad =  newList[index].cantidad + quantity;
+            setProductCartList(newList )
    
     
     }

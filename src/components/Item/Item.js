@@ -5,11 +5,10 @@ import { CartContext } from "../../Context/CartContext";
 
 export const Item=({productos, items})=>{
 
-  const [contador, setContador] = useState(0);
-  const {addProduct,isIntCart,addCantToCart } = useContext(CartContext);
-  // console.log("mi items"+ productos)
 
-  const agregarItem = (quantityToAdd) => {
+  const {addProduct,isIntCart,addCantToCart } = useContext(CartContext);
+
+  const agregarItem = () => {
 
     if (!isIntCart(productos.id)) {
       const newProduct = { ...productos, cantidad: 1 };
@@ -32,7 +31,7 @@ export const Item=({productos, items})=>{
             <Link to ={`/item/${productos.id}`}>   <img src={productos.img} className="" alt="Kero" /></Link>
               <div className="prod_sale">sale!</div>
             </div>
-            <h3 className=" prod_textCenter ">{productos.nombre}</h3>
+            <h4 className=" prod_textCenter ">{productos.nombre}</h4>
             <div className="prod_cajaInfoCart">
               <div className="prod_price">
                 <div className="prod_priceBefore">$60.00</div>

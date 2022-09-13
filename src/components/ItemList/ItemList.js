@@ -6,8 +6,7 @@ export const ItemList=({items})=>{
 
     return (
       <>
-        <section className="list_itemContainer">
-              <div className="list_itemPrimeraSeccion">
+   
                   {
                   items.map(elementos => (
                     // <Link key={elementos.id} to={`/item/${elementos.id}`}>
@@ -16,9 +15,7 @@ export const ItemList=({items})=>{
                      <Item productos={elementos}  key={elementos.id} items={items}/>
                   ))
                   }
-              </div>
   
-        </section>
       </>
     );
 }
