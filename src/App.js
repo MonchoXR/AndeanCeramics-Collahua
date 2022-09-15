@@ -14,6 +14,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from "./Pages/Home/Home";
 import { CartContainer } from "./components/CartContainer/CartContainer";
 import { CartProvider } from './Context/CartContext';
+import { PaginaFirebase } from './components/PaginaFirebase/PaginaFirebase';
+
 // import { Catalogo } from './components/Catalogo/Catalogo';
 
 
@@ -36,6 +38,7 @@ function App() {
           <Route path='/item/:tipoId' element={<ItemDetailContainer/>}/>
           <Route path='/cart/' element={<CartContainer/>}/>
           <Route path='*' element={<ItemListContainer/>}/>
+          <Route path='/firebase' element={<PaginaFirebase/>}/>
         </Routes>
        </BrowserRouter>
      </CartProvider>
