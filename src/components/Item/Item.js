@@ -6,18 +6,21 @@ import { CartContext } from "../../Context/CartContext";
 export const Item=({productos, items})=>{
 
 
-  const {addProduct,isIntCart,addCantToCart } = useContext(CartContext);
+  const {addProduct,isIntCart,addCantToItemCart,productCartList } = useContext(CartContext);
 
   const agregarItem = () => {
 
     if (!isIntCart(productos.id)) {
       const newProduct = { ...productos, cantidad: 1 };
+
       addProduct(newProduct);
 
     } 
      else {
-     
-      addCantToCart(productos.id, 1);
+ 
+        addCantToItemCart(productos.id, +1);
+      
+      
     }
  
   };   

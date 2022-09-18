@@ -10,13 +10,13 @@ export const ItemListMiniCart=()=>{
       <>
         {productCartList.map((item) => (
           <>
-            <div className="prod_cajaDetalle" key={item.id}>
+            <div  key={item.id} className="prod_cajaDetalle">
               <div className="prod_imgCompra">
-                <img src={item.img} className="" alt="Catalago3" />
+                <img src={item.img}  alt="Catalago3" />
                 <button className="prodEliminaCss"  onClick={()=>deleteProduct(item.id)}> X </button>
               </div>
 
-              <div>
+              <div >
                 <span>{item.nombre}</span>
                 <br />
                 <span>

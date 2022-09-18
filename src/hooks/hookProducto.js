@@ -7,7 +7,7 @@ export const UseProducto=(data) =>{
 
     const [ items, setItem] = useState([]);
     const [state, setState] = useState(true);
-
+console.log("entro aqui");
     const eventData =()=>{
 
         return new Promise((resolve, reject)=>{

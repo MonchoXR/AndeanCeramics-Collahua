@@ -5,13 +5,14 @@ import { Productos } from '../Producto/Producto';
 import { useState,useEffect } from 'react';
 
 import Icono from '../../Assets/Iconos/DualRing.gif';
+import { UseProductoFirebase } from '../../hooks/useProductFirebase';
 
 
 export const ItemDetailContainer = () => {
 
 
-  const { items, state } = UseProducto(Productos);
-
+  // const { items, state } = UseProducto(Productos);
+  const { items, state } = UseProductoFirebase()
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

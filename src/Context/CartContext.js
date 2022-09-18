@@ -35,11 +35,25 @@ export const CartProvider = ({children})=>{
             const newList = [...productCartList]
 
             let index = productCartList.findIndex(item => item.id === id)
-            newList[index].cantidad =  newList[index].cantidad + quantity;
+            newList[index].cantidad =  quantity;
             setProductCartList(newList )
-   
-    
+     
     }
+
+
+    const addCantToItemCart=(id,quantity)=>{
+        
+        const newList = [...productCartList]
+
+        let index = productCartList.findIndex(item => item.id === id)
+        if(newList[index].cantidad<newList[index].stock)
+        {
+            newList[index].cantidad = newList[index].cantidad + quantity;
+            setProductCartList(newList )
+        }
+ 
+ 
+}
 
 
     const getNumeroTotalCount=()=>{
@@ -77,7 +91,7 @@ export const CartProvider = ({children})=>{
     }
 
     return(
-        <CartContext.Provider value={{productCartList, addProduct, deleteProduct,isIntCart,addCantToCart,getNumeroTotalCount,clear,getUpdateItemCart,getNumeroSubTotal}}>
+        <CartContext.Provider value={{productCartList, addProduct, deleteProduct,isIntCart,addCantToCart,getNumeroTotalCount,clear,getUpdateItemCart,getNumeroSubTotal,addCantToItemCart}}>
             {/* ..components */}
             {children}
         </CartContext.Provider>

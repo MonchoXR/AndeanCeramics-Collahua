@@ -12,7 +12,7 @@ export const ItemList=({items})=>{
                     // <Link key={elementos.id} to={`/item/${elementos.id}`}>
                     //      <Item productos={elementos}  />
                     // </Link>
-                     <Item productos={elementos}  key={elementos.id} items={items}/>
+                     <Item key={elementos.id} productos={elementos}   items={items}/>
                   ))
                   }
   

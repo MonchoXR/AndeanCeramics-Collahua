@@ -36,7 +36,7 @@ export const CartContainerDetail=()=>{
                           <td  className="cartCont_cuadro"> <div> {item.nombre} </div></td>
                           <td  className="cartCont_cuadro"> <div> ${item.precio} </div></td>
                           {/* <td  className="cartCont_cuadro"><div><button className="" >-</button> {item.cantidad} <button className="" >+</button></div></td> */}
-                          <td  className="cartCont_cuadro"><ItemCartCount itemId={item.id} cantidad={item.cantidad} stock={10} /></td> 
+                          <td  className="cartCont_cuadro"><ItemCartCount itemId={item.id} cantidad={item.cantidad} stock={item.stock} /></td> 
                           <td  className="cartCont_cuadro"><div> {item.cantidad*item.precio} </div></td>
                       </tr>
 
