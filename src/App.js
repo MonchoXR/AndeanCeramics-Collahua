@@ -15,6 +15,7 @@ import { Home } from "./Pages/Home/Home";
 import { CartContainer } from "./components/CartContainer/CartContainer";
 import { CartProvider } from './Context/CartContext';
 import { PaginaFirebase } from './components/PaginaFirebase/PaginaFirebase';
+import { CheckOut } from './components/checkOut/checkOut';
 
 // import { Catalogo } from './components/Catalogo/Catalogo';
 
@@ -39,6 +40,7 @@ function App() {
           <Route path='/cart/' element={<CartContainer/>}/>
           <Route path='*' element={<ItemListContainer/>}/>
           <Route path='/firebase' element={<PaginaFirebase/>}/>
+          <Route path='/checkOut' element={<CheckOut/>}/>
         </Routes>
        </BrowserRouter>
      </CartProvider>

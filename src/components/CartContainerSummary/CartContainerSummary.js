@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext";
-
+import { Link } from "react-router-dom";
 
 export const CartContainerSummary=()=>{
   
@@ -35,7 +35,7 @@ export const CartContainerSummary=()=>{
               </tbody>
               
             </Table>
-             <button className="cart_ViewCheckOut">Procced To CheckOut</button>
+            <Link className="prdViewCart" to ={"/checkOut"}><button className="cart_ViewCheckOut">Procced To CheckOut</button></Link>
             <p>Promotion, Coupon Code: </p>
             <div className="cart_cuponContainer">
                 <input type="text" className="form-control " placeholder="Cupon Code" />                

@@ -31,6 +31,7 @@ export const ItemListMiniCart=()=>{
             <p className="prod_colorLetraCart"><strong>SubTotal:</strong><span className=""> ${getNumeroSubTotal()}</span></p>
             <div className="prodMiniCart " >
             <Link className="prdViewCart" to ={"/cart"}><button className="prdViewCartBtn"> View Cart </button></Link>
+            <Link className="prdViewCart" to ={"/checkout"}><button className="prdViewCartBtn">CheckOut </button></Link>
             </div>
       </>
     );
