@@ -35,7 +35,8 @@ export const CartContainerSummary=()=>{
               </tbody>
               
             </Table>
-            <Link className="prdViewCart" to ={"/checkOut"}><button className="cart_ViewCheckOut">Procced To CheckOut</button></Link>
+            <Link className="prdViewCart" to ={"/checkOut"}><button className="cart_ViewCheckOut">CheckOut</button></Link>
+            {/* <button className="cart_ViewCheckOut"  onClick={StripeCheckOut}>CheckOut With Stripe</button> */}
             <p>Promotion, Coupon Code: </p>
             <div className="cart_cuponContainer">
                 <input type="text" className="form-control " placeholder="Cupon Code" />                

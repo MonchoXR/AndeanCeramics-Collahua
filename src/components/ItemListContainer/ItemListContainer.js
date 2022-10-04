@@ -18,6 +18,7 @@ function ItemListContainer(){
   const {productCartList} = useContext(CartContext);
 
  
+  //***SIN FIREBASE*****/
 //   const obtenerProductos =()=>{
 //       return new Promise((resolve, reject)=>{
 //           // setTimeout(()=>{
@@ -48,8 +49,7 @@ function ItemListContainer(){
 //   };
 //   funcionAsincrona();
 // }, [tipoCatalogo]);
-
-
+  //***SIN FIREBASE*****/
 
 
   useEffect(() => {

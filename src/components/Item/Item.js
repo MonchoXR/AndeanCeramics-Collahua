@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import {  useState } from "react"
+
 import { useContext, } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 export const Item=({productos, items})=>{
 
 
-  const {addProduct,isIntCart,addCantToItemCart,productCartList } = useContext(CartContext);
+  const {addProduct,isIntCart,addCantToItemCart } = useContext(CartContext);
 
   const agregarItem = () => {
 

@@ -2,7 +2,6 @@
 import { useContext, useState } from "react"
 import Kero from '../../Assets/Catologo/3D/Kero.glb';
 import { CartContext } from "../../Context/CartContext";
-import { Carrito } from "../Carrito/Carrito";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 

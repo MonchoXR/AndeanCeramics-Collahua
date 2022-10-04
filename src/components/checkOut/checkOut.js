@@ -1,59 +1,50 @@
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
-// import { useState } from 'react';
+// import {  useState } from 'react';
 import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext";
+import { useNavigate } from "react-router-dom";
 //Firebase//
 import {collection, addDoc} from "firebase/firestore";
 import {db} from "../../utils/firebase";
 
+
 export const CheckOut=()=>{
 
     // const [validated, setValidated] = useState(false);
-
+    const navigate = useNavigate();
     const {productCartList ,getNumeroSubTotal} = useContext(CartContext);
-    // const [idOrder, setIdOrder] = useState("");
 
     const sendOrder=(e)=>{
-        e.preventDefault();
-        // const form = e.currentTarget;
-      
-        // if (form.checkValidity() === false) {
-        //     e.preventDefault();
-        //     e.stopPropagation();
-         
-        // }
+      e.preventDefault();
 
-        // setValidated(true);
-        const datachk = new FormData(e.target);
-         let datosFormchk = Object.fromEntries(datachk.entries());
-  
+      const datachk = new FormData(e.target);
+      let datosFormchk = Object.fromEntries(datachk.entries());
 
-        const order = {
-            buyer: {
-              name: datosFormchk.inputName,
-              LastName:datosFormchk.inputLastName,
-              Address:datosFormchk.inputAddress,
-              email:datosFormchk.inputAddress,
-              date:new Date().toLocaleString() +""
-            },
-            items: productCartList,
-            total: getNumeroSubTotal()+100
-          }
-       
+      const order = {
+        buyer: {
+          name: datosFormchk.inputName,
+          LastName: datosFormchk.inputLastName,
+          Address: datosFormchk.inputAddress,
+          email: datosFormchk.inputAddress,
+          date: new Date().toLocaleString() + "",
+        },
+        items: productCartList,
+        total: getNumeroSubTotal() + 100,
+      };
 
-        //crear referencia en la base de datos de donde voy a guardar el documento
-        const queryRef = collection(db,"orders");
-           //agregamos el documento
-        // addDoc(queryRef, order).then(respuesta=>setIdOrder(respuesta.id))
-        addDoc(queryRef, order);
-    
-        console.log(order)
-        e.target.reset();
+      //crear referencia en la base de datos de donde voy a guardar el documento
+      const queryRef = collection(db, "orders");
+      //agregamos el documento
 
+      addDoc(queryRef, order).then((respuesta) => {
+        const idOrder = respuesta.id;
+        navigate("/success", { state: { name: { idOrder, order } } });
+      });
 
-        
+      e.target.reset();
     }
+
 
     return (
       <>
@@ -88,9 +79,6 @@ export const CheckOut=()=>{
                             </Form.Text>
                         </Form.Group>
 
-
-
-
                         <Form.Group className="col-12" controlId="inputEmailChk">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" name="inputEmail" required/>
@@ -114,12 +102,12 @@ export const CheckOut=()=>{
                     </thead>
                     <tbody>
                       {productCartList.map((item) => (
-                         <>
-                        <tr>          
+                   
+                        <tr  key={item.id}>          
                             <td>{item.nombre}</td>
                             <td>${item.precio*item.cantidad}</td>        
                         </tr>   
-                         </>
+                      
                   ))}   
                     </tbody>
                     <tbody>     
@@ -140,8 +128,10 @@ export const CheckOut=()=>{
                   </tbody>
                  
                 </Table>
-                 <button type="submit" form="formCheckout" className="check_order" >Place Order</button>
-            
+              
+                <button type="submit" form="formCheckout" className="check_order" >Place Order</button>
+       
+   
             </div>
         </div>
         </>
@@ -155,3 +145,4 @@ export const CheckOut=()=>{
       </>
     );
 }
+

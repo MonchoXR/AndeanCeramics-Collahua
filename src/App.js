@@ -16,6 +16,8 @@ import { CartContainer } from "./components/CartContainer/CartContainer";
 import { CartProvider } from './Context/CartContext';
 import { PaginaFirebase } from './components/PaginaFirebase/PaginaFirebase';
 import { CheckOut } from './components/checkOut/checkOut';
+import { SuccessStripe } from './Pages/SuccessStripe/successStripe';
+import { CancelStripe } from './Pages/CancelStripe/cancelStripe';
 
 // import { Catalogo } from './components/Catalogo/Catalogo';
 
@@ -41,6 +43,8 @@ function App() {
           <Route path='*' element={<ItemListContainer/>}/>
           <Route path='/firebase' element={<PaginaFirebase/>}/>
           <Route path='/checkOut' element={<CheckOut/>}/>
+          <Route path='/success' element={<SuccessStripe/>}/>
+          <Route path='/cancel' element={<CancelStripe/>}/>
         </Routes>
        </BrowserRouter>
      </CartProvider>

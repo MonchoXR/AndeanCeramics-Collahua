@@ -9,7 +9,6 @@ export const ItemListMiniCart=()=>{
     return (
       <>
         {productCartList.map((item) => (
-          <>
             <div  key={item.id} className="prod_cajaDetalle">
               <div className="prod_imgCompra">
                 <img src={item.img}  alt="Catalago3" />
@@ -24,9 +23,6 @@ export const ItemListMiniCart=()=>{
                 </span>
               </div>
             </div>
-
-     
-          </>
         ))}
             <p className="prod_colorLetraCart"><strong>SubTotal:</strong><span className=""> ${getNumeroSubTotal()}</span></p>
             <div className="prodMiniCart " >
